@@ -4,6 +4,6 @@ import { PagosService } from './services/pagos.service';
 
 @Module({
   controllers: [PagosController],
-  providers: [PagosService]
+  providers: [PagosService],
 })
 export class PagosModule {}

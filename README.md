@@ -31,6 +31,7 @@ src/
 ```
 
 Cada módulo contiene sus propios:
+
 - `controllers/`
 - `services/`
 - `dto/`
@@ -65,13 +66,13 @@ npm run start:dev
 
 ## 🌍 Endpoints principales
 
-| Método | Ruta                       | Descripción                          |
-|--------|----------------------------|--------------------------------------|
-| POST   | /usuarios/register         | Registro de usuario                  |
-| POST   | /verificacion/verify       | Verificación de humanidad (World ID) |
-| POST   | /subastas/crear            | Crear una subasta nueva              |
-| POST   | /servicios/oferta          | Ofertar servicio o contraoferta      |
-| POST   | /pagos/realizar            | Realizar pago en WLD                 |
+| Método | Ruta                 | Descripción                          |
+| ------ | -------------------- | ------------------------------------ |
+| POST   | /usuarios/register   | Registro de usuario                  |
+| POST   | /verificacion/verify | Verificación de humanidad (World ID) |
+| POST   | /subastas/crear      | Crear una subasta nueva              |
+| POST   | /servicios/oferta    | Ofertar servicio o contraoferta      |
+| POST   | /pagos/realizar      | Realizar pago en WLD                 |
 
 ---
 

@@ -8,7 +8,7 @@ import { JwtService } from '@nestjs/jwt';
 export class VerificacionService {
   constructor(
     private readonly prisma: PrismaService,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
   ) {}
 
   async verificar(dto: VerificarDto) {

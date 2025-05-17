@@ -4,6 +4,6 @@ import { SubastasService } from './services/subastas.service';
 
 @Module({
   controllers: [SubastasController],
-  providers: [SubastasService]
+  providers: [SubastasService],
 })
 export class SubastasModule {}

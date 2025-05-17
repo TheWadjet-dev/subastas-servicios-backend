@@ -12,16 +12,22 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-  ConfigModule.forRoot(),
-  JwtModule.registerAsync({
-    imports: [ConfigModule],
-    useFactory: async (configService: ConfigService) => ({
-      secret: configService.get<string>('JWT_SECRET'),
-      signOptions: { expiresIn: '60s' },
+    ConfigModule.forRoot(),
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        secret: configService.get<string>('JWT_SECRET'),
+        signOptions: { expiresIn: '60s' },
+      }),
+      inject: [ConfigService],
     }),
-    inject: [ConfigService],
-  }),
-  UsuariosModule, SubastasModule, ServiciosModule, VerificacionModule, PagosModule, NotificacionesModule],
+    UsuariosModule,
+    SubastasModule,
+    ServiciosModule,
+    VerificacionModule,
+    PagosModule,
+    NotificacionesModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
