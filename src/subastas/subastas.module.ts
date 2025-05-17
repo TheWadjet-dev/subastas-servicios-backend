@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { SubastasController } from './controllers/subastas/subastas.controller';
-import { SubastasService } from './services/subastas/subastas.service';
+import { SubastasController } from './controllers/subastas.controller';
+import { SubastasService } from './services/subastas.service';
 
 @Module({
   controllers: [SubastasController],
