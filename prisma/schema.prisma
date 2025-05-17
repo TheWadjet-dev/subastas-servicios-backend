@@ -1,0 +1,46 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Usuario {
+  id             String    @id @default(cuid())
+  nullifierHash  String    @unique
+  creadoEn       DateTime  @default(now())
+  subastas       Subasta[]
+  servicios      Servicio[]
+  pagos          Pago[]
+}
+
+model Subasta {
+  id            String   @id @default(cuid())
+  titulo        String
+  descripcion   String
+  precioBase    Float
+  activo        Boolean  @default(true)
+  fechaLimite   DateTime
+  usuario       Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId     String
+}
+
+model Servicio {
+  id            String   @id @default(cuid())
+  descripcion   String
+  estado        String   // pendiente, aceptado, rechazado
+  usuario       Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId     String
+}
+
+model Pago {
+  id            String   @id @default(cuid())
+  monto         Float
+  token         String   @unique
+  estado        String   // pendiente, confirmado, fallido
+  fecha         DateTime @default(now())
+  usuario       Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId     String
+}
